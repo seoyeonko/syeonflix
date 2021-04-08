@@ -6,7 +6,7 @@ class HomeContainer extends React.Component {
   // state
   state = {
     nowPlaying: null,
-    upcomming: null,
+    upcoming: null,
     popular: null,
     error: null,
     loading: true,
@@ -68,12 +68,13 @@ class HomeContainer extends React.Component {
 
   // render method
   render() {
-    const { nowPlaying, upcomming, popular, error, loading } = this.state;
+    const { nowPlaying, upcoming, popular, error, loading } = this.state;
+    console.log("hi");
     console.log(this.state);
     return (
       <HomePresenter
         nowPlaying={nowPlaying}
-        upcomming={upcomming}
+        upcoming={upcoming}
         popular={popular}
         error={error}
         loading={loading}
