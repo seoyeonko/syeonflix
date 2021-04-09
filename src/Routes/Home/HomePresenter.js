@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Section from "../../Components/Section";
+import Loader from "../../Components/Loader";
 
 const Container = styled.div`
   padding: 0px 10px;
@@ -12,21 +13,29 @@ const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) =>
   // 1. nowPlaying 존재 여부
   // 2. 존재 여부를 알기 위해 nowPlaying의 길이 > 0 확인
   // 3. section이 원하는대로 render 되는지
-  loading ? null : (
+  loading ? (
+    <Loader />
+  ) : (
     <Container>
       {nowPlaying && nowPlaying.length > 0 && (
         <Section title="Now Playing">
-          {nowPlaying.map((movie) => movie.title)}
+          {nowPlaying.map((movie) => (
+            <span key={movie.id}>{movie.title}</span>
+          ))}
         </Section>
       )}
       {upcoming && upcoming.length > 0 && (
         <Section title="Upcoming Movies">
-          {upcoming.map((movie) => movie.title)}
+          {upcoming.map((movie) => (
+            <span key={movie.id}>{movie.title}</span>
+          ))}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title="Poppular Movies">
-          {popular.map((movie) => movie.title)}
+          {popular.map((movie) => (
+            <span key={movie.id}>{movie.title}</span>
+          ))}
         </Section>
       )}
     </Container>
