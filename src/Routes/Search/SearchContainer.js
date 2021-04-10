@@ -14,11 +14,23 @@ class SearchContainer extends React.Component {
 
   // other logic : input 값으로 검색하고 리턴값을 받을 때 작동
   // handle submit: 누군가 폼에서 text를 입력하고, 엔터를 누르면 handleSubmit이 됨
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
+
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searchByTerm(searchTerm);
     }
+  };
+
+  updateTerm = (event) => {
+    const {
+      target: { value },
+    } = event;
+    // console.log(value);
+    this.setState({
+      searchTerm: value,
+    });
   };
 
   // searchByTerm
@@ -52,6 +64,7 @@ class SearchContainer extends React.Component {
         error={error}
         searchTerm={searchTerm}
         handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
   }
