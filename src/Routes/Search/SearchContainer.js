@@ -19,7 +19,7 @@ class SearchContainer extends React.Component {
 
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
-      this.searchByTerm(searchTerm);
+      this.searchByTerm();
     }
   };
 

@@ -7,10 +7,12 @@ import Section from "../../Components/Section";
 const Container = styled.div`
   padding: 0px 20px;
 `;
+
 const Form = styled.form`
   margin-bottom: 50px;
   width: 100%;
 `;
+
 const Input = styled.input`
   all: unset;
   font-size: 28px;
@@ -21,13 +23,13 @@ const SearchPresenter = ({
   movieResults,
   tvResults,
   loading,
+  error,
   searchTerm,
   handleSubmit,
-  error,
   updateTerm,
 }) => (
   <Container>
-    <Form submit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Input
         placeholder="Search Movies or TV Shows ..."
         value={searchTerm}
@@ -61,7 +63,7 @@ SearchPresenter.propTypes = {
   movieResults: PropTypes.array,
   tvResults: PropTypes.array,
   error: PropTypes.string,
-  searchTerm: PropTypes.array,
+  searchTerm: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   updateTerm: PropTypes.func.isRequired,
