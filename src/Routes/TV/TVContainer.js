@@ -21,6 +21,7 @@ class TVContainer extends React.Component {
       const {
         data: { results: popular },
       } = await TVApi.popular();
+      throw Error();
       const {
         data: { results: airingToday },
       } = await TVApi.airingToday();
